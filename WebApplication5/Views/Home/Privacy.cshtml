@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>book</title>
+    <link rel="stylesheet" href="~/css/books.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="@Url.Action("Index", "Home")">主頁</a></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-details">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/300x400" alt="書籍封面">
+            </div>
+            <div class="product-info">
+                <h2 class="product-title" id="bookTitle"></h2>
+                <div class="product-meta">
+                    <p id="bookAuthor"></p>
+                    <p id="bookPublisher"></p>
+                    <p id="bookPublishDate"></p>
+                    <p id="bookISBN"></p>
+                </div>
+                <div class="product-price" id="bookPrice"></div>
+
+            </div>
+        </div>
+
+        <div class="product-description">
+            <div class="tab-container">
+                <div class="tab active" onclick="showTab('intro')">內容簡介</div>
+                <div class="tab" onclick="showTab('author')">作者介紹</div>
+            </div>
+            <div id="intro" class="tab-content">
+                <p id="bookIntro"></p>
+            </div>
+            <div id="author" class="tab-content" style="display:none;">
+                <p id="authorIntro"></p>
+            </div>
+        </div>
+
+        <div class="user-reviews">
+            <h3>用戶評論</h3>
+            <div class="review-form">
+                <h4>發表評論</h4>
+                <form id="reviewForm">
+                    <div>
+                        <label for="reviewAuthor">姓名:</label>
+                        <input type="text" id="reviewAuthor" required>
+                    </div>
+                    <div>
+                        <label for="reviewContent">評論內容:</label>
+                        <textarea id="reviewContent" required></textarea>
+                    </div>
+                    <button type="submit">提交評論</button>
+                </form>
+            </div>
+            <div class="review-list" id="reviewList">
+            </div>
+        </div>
+    </main>
+
+    <script src="~/js/bookJavaScript.js" asp-append-version="true"></script>
+</body>
+
+</html>

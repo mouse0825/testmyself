@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>home</title>
+    <link rel="stylesheet" href="~/css/home.css" />
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <a href="@Url.Action("Index", "Home")" class="logo">主頁</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" placeholder="搜索">
+            <button>搜索</button>
+        </div>
+
+        <div class="filter-container">
+            <div class="filter">
+                <select>
+                    <option value="" disabled selected>選擇條件</option>
+                    <option value="publisher1">出版社</option>
+                    <option value="price1">價格</option>
+                </select>
+            </div>
+            <div class="filter">
+                <select id="itemsPerPage" onchange="changeItemsPerPage()">
+                    <option value="24" selected>每頁顯示24個</option>
+                    <option value="48">每頁顯示48個</option>
+                    <option value="72">每頁顯示72個</option>
+                </select>
+            </div>
+        </div>
+
+        <ul class="view-toggle">
+            <li class="active" onclick="changeView(this, 'list')"><i class="icon-th-list-1"></i>列表</li>
+            <li onclick="changeView(this, 'grid')"><i class="icon-th-large-1"></i>小圖</li>
+        </ul>
+
+        <div id="book-grid" class="grid">
+        </div>
+
+        <ul class="pagination" id="pagination">
+        </ul>
+    </div>
+    <script src="~/js/homeJavaScript.js" asp-append-version="true"></script>
+    
+   
+
+</body>
+</html>
